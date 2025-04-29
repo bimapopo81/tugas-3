@@ -14,6 +14,10 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.3.5.RELEASE</version>
+                <configuration>
+                    <!-- Tentukan main class di sini -->
+                    <mainClass>com.example.JavaMavenAppApplication</mainClass> <!-- Ganti dengan nama kelas utama Anda -->
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
@@ -23,7 +27,7 @@
                 </executions>
             </plugin>
 
-            <!-- to handle any Java version mismatch, add the following configuration for maven-compiler-plugin -->
+            <!-- Plugin untuk mengatasi mismatch versi Java -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
