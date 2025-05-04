@@ -2,8 +2,7 @@ pipeline {
     agent any
 
     environment {
-        BRANCH_NAME = 'main'  // Menetapkan variabel BRANCH_NAME jika tidak ada
-        DOCKER_ENABLED = 'true'  // Variabel untuk memeriksa apakah Docker bisa digunakan
+        BRANCH_NAME = 'main'  // Set variabel BRANCH_NAME jika tidak ada
     }
 
     stages {
@@ -18,7 +17,7 @@ pipeline {
 
         stage('Build') {
             when {
-                expression { env.BRANCH_NAME == 'main' } 
+                expression { env.BRANCH_NAME == 'main' }
             }
             steps {
                 script {
