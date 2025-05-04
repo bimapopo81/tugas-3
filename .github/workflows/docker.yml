@@ -20,11 +20,11 @@ jobs:
 
       - name: Build Maven project
         run: |
-          mvn clean install # Melakukan build Maven untuk menghasilkan .jar
+          mvn clean install  # Melakukan build Maven untuk menghasilkan .jar
 
       - name: Verify .jar file exists
         run: |
-          ls -l target # Memastikan file .jar ada di direktori target
+          ls -l target  # Memastikan file .jar ada di direktori target
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
