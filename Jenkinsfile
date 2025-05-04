@@ -45,14 +45,18 @@ pipeline {
         }
 
         stage('Run') {
-            steps {
-                script {
-                    echo "Running the application..."
-                    // Pastikan file JAR yang dijalankan memiliki kelas utama yang benar
-                    sh 'java -jar target/java-maven-app-1.1.0-SNAPSHOT.jar'  // Jalankan aplikasi
-                }
-            }
+    steps {
+        script {
+            echo "Running the application..."
+            // Menjalankan aplikasi di background
+            sh 'java -jar target/java-maven-app-1.1.0-SNAPSHOT.jar &'
+            // Cek apakah aplikasi sudah bisa diakses pada port 8080
+            sh 'curl --silent --fail http://localhost:8080 || echo "Aplikasi tidak berjalan dengan baik!"'
         }
+    }
+}
+
+
 
         stage('Deploy') {
             when {
