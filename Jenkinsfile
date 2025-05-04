@@ -27,14 +27,16 @@ pipeline {
             }
         }
 
-        stage('Run') {
-            steps {
-                script {
-                    echo "Running the application..."
-                    sh 'java -jar target/java-maven-app-*.jar'  // Menjalankan aplikasi yang dibangun
-                }
-            }
+       stage('Run') {
+    steps {
+        script {
+            echo "Running the application..."
+            // Pastikan file JAR yang dijalankan memiliki kelas utama yang benar
+            sh 'java -jar target/java-maven-app-1.1.0-SNAPSHOT.jar'
         }
+    }
+}
+
 
         stage('Deploy') {
             when {
